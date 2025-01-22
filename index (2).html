@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excellence School</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+ 
+        html {
+            scroll-behavior: smooth;
+        }
+ 
+        section {
+            padding: 80px 20px;
+        }
+ 
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+ 
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #003366;
+            padding: 15px 30px;
+            z-index: 1000;
+        }
+ 
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+        }
+ 
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+ 
+        nav ul li {
+            margin-left: 30px;
+        }
+ 
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+ 
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+ 
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #004d99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+ 
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color:yellow;
+        }
+ 
+        /* About Section */
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .about-text {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+ 
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+ 
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #003366;
+        }
+ 
+        /* Academics Section */
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .program-card {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+ 
+        /* Facilities Section */
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .facility {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        /* Events Section */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.event-card {
+    background: yellow;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+ 
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+ 
+.event-card h3, .event-card p, .event-card .date {
+    padding: 10px 20px;
+}
+ 
+.event-card .date {
+    color: #003366;
+    font-weight: bold;
+    display: block;
+}
+ 
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+ 
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+ 
+/* Student Life Section */
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.life-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+ 
+.life-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+ 
+.life-card h3, .life-card p {
+    padding: 15px;
+}
+ 
+/* Achievements Section */
+.achievements-slider {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.achievement-card {
+    min-width: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+ 
+.achievement-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+ 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .events-grid,
+    .gallery-grid,
+    .life-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+ 
+    .achievements-slider {
+        flex-direction: column;
+    }
+ 
+    .achievement-card {
+        min-width: unset;
+    }
+}
+ 
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+ 
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+ 
+        .contact-form textarea {
+            height: 150px;
+        }
+ 
+        .contact-form button {
+            padding: 15px;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+ 
+        .contact-form button:hover {
+            background: #002244;
+        }
+ 
+        /* Footer */
+        footer {
+            background: #002244;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+ 
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .footer-section h4 {
+            margin-bottom: 20px;
+        }
+ 
+        .footer-section ul {
+            list-style: none;
+        }
+ 
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+ 
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+ 
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+ 
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+ 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Sqilco</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#student-life">Student Life</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to sqilco</h1>
+            <p>coading Minds, Building Futures</p>
+        </div>
+    </section>
+ 
+    <!-- About Section -->
+    <section id="about SQICO" class="about">
+        <h2><ABOUT /h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Excellence School has been a pioneer in education since 1990. We focus on holistic development of students through innovative teaching methods and comprehensive curriculum.</p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Students</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Teachers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>Years</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Academics Section -->
+    <section id="academics" class="academics">
+        <h2>Academics</h2>
+        <div class="programs">
+            <div class="program-card">
+                <h3></h3>
+                <p>Grades 1-5 with focus on fundamental education</p>
+            </div>
+            <div class="program-card">
+                <h3></h3>
+                <p>Grades 6-8 with expanded curriculum</p>
+            </div>
+            <div class="program-card">
+                <h3></h3>
+                <p>Grades 9-12 with specialized streams</p>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities">
+        <h2>Our Facilities</h2>
+        <div class="facility-grid">
+            <div class="facility">
+                <h3>Science Labs</h3>
+                <p>State-of-the-art laboratories</p>
+            </div>
+            <div class="facility">
+                <h3>Library</h3>
+                <p>Extensive collection of books, MILLIONS OF books</p>
+            </div>
+            <div class="facility">
+                <h3>Sports Complex</h3>
+                <p>Multiple sports facilities</p>
+            </div>
+            <div class="facility">
+                <h3>Computer Lab</h3>
+                <p>Modern computer facilities</p>
+            </div>
+        </div>
+    </section>
+ 
+  <!-- After Facilities section, add these new sections: -->
+ 
+<!-- Events Section -->
+<section id="events" class="events">
+    <h2>Sqilco Founders</h2>
+    <div class="events-grid">
+        <div class="event-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbrimth4p3XaTe85VTs9mQ8mPprMJ7iQAVrw&s" alt="sqilco logo">
+            <h3>logo</h3>
+            <p> logo of sqilco </p>
+            <span class="date"></span>
+        </div>
+        <div class="event-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS3v3wIpV4pn4tQv4cZc3bjZ6zugS6ixFkWQ&s" alt="Sports Meet"> 
+            
+            <h3>Ishank nagpal</h3>
+            <p>Co-founder of sqilco</p>
+            <span class="date"></span>
+        </div>
+        <div class="event-card">
+            <img src="https://www.edukida.in/wp-content/uploads/2024/10/Gurtej-797x394.jpg" alt="Science Fair">
+            <h3>Gurtej Singh</h3>
+            <p>Founder of sqilco</p>
+            <span class="date"></span>
+        </div>
+    </div>
+</section>
+ 
+<!-- Gallery Section -->
+<section id="gallery" class="gallery">
+    <h2>School Gallery</h2>
+    <div class="gallery-grid">
+        <img src="https://via.placeholder.com/300x300" alt="Campus">
+        <img src="https://via.placeholder.com/300x300" alt="Classroom">
+        <img src="https://via.placeholder.com/300x300" alt="Laboratory">
+        <img src="https://via.placeholder.com/300x300" alt="Library">
+        <img src="https://cambridgeschoolsrdr.in/wp-content/uploads/2022/04/Sainik-Defence.jpg" alt="Playground">
+        <img src="https://via.placeholder.com/300x300" alt="Auditorium">
+    </div>
+</section>
+ 
+<!-- Student Life Section -->
+<section id="student-life" class="student-life">
+    <h2>Student Life</h2>
+    <div class="life-grid">
+        <div class="life-card">
+            <img src="https://via.placeholder.com/400x300" alt="Clubs">
+            <h3>Student Clubs</h3>
+            <p>Join various clubs from robotics to art</p>
+        </div>
+        <div class="life-card">
+            <img src="https://via.placeholder.com/400x300" alt="Sports">
+            <h3>Sports Activities</h3>
+            <p>Participate in multiple sports disciplines</p>
+        </div>
+        <div class="life-card">
+            <img src="https://via.placeholder.com/400x300" alt="Cultural">
+            <h3>Cultural Activities</h3>
+            <p>Express yourself through dance, music, and drama</p>
+        </div>
+    </div>
+</section>
+ 
+<!-- Achievements Section -->
+<section id="achievements" class="achievements">
+    <h2>Our Achievements</h2>
+    <div class="achievements-slider">
+        <div class="achievement-card">
+            <img src="https://via.placeholder.com/200x200" alt="Trophy">
+            <h3>Best School Award 2024</h3>
+            <p>Recognized for academic excellence</p>
+        </div>
+        <div class="achievement-card">
+            <img src="https://via.placeholder.com/200x200" alt="Medal">
+            <h3>Sports Championship</h3>
+            <p>State level winners in multiple categories</p>
+        </div>
+        <div class="achievement-card">
+            <img src="https://via.placeholder.com/200x200" alt="Certificate">
+            <h3>100% Results</h3>
+            <p>Consistent academic performance</p>
+        </div>
+    </div>
+</section>
+ 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Email: info@excellenceschool.com</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Address: 123 Education Street, City, Country</p>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Excellence School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
